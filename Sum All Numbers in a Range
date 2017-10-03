@@ -1,0 +1,20 @@
+function sumAll(arr) {
+  var max = arr.reduce(function(a, b) {
+      return Math.max(a, b);
+      }),
+      min = arr.reduce(function(a,b) {
+          return Math.min(a,b);
+      }),
+      newArr=[],
+      i;
+  
+  for (i=0; i<(max-min+1); i++){
+      newArr.push(min+i);
+  }
+  
+  return newArr.reduce(function(a,b){
+    return a + b;
+  });
+}
+
+sumAll([1, 4]);
