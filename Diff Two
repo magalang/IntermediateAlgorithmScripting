@@ -1,0 +1,26 @@
+function diffArray(arr1, arr2) {
+  var longArr = arr1.concat(arr2);
+  var indices = [];
+  var newArr =[];
+  
+  //var newArr = longArr.filter(function(x){
+  for (i=0; i<longArr.length; i++){
+    var element = longArr[i];
+    var idx=longArr.indexOf(element);
+    while (idx !=-1){
+      indices.push(idx);
+      idx = longArr.indexOf(element, idx +1);
+    }
+    if (indices.length == 1){
+      newArr.push(element);
+    } else {
+      indices =[];
+    }
+  }
+  
+  
+  // Same, same; but different.
+  return newArr;
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
