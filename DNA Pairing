@@ -1,0 +1,25 @@
+function pairElement(str) {
+  var pairs = [];
+  str.split("").forEach(function(base){
+    var pair=[];
+    pair.push(base);
+    switch (base) {
+      case "G":
+        pair.push("C");
+        break;
+      case "C":
+        pair.push("G");
+        break;
+      case "A":
+        pair.push("T");
+        break;
+      case "T":
+        pair.push("A");
+    }
+    pairs.push(pair);
+  });
+  
+  return pairs;
+}
+
+pairElement("GCG");
