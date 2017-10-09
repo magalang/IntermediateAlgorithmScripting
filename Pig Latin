@@ -1,0 +1,13 @@
+function translatePigLatin(str) {
+  var indexOfVowel = str.search(/[aeiouy]/gi);
+  var firstCons = str.substr(0,indexOfVowel);
+  if (str.split("")[0].match(/[aeiouy]/gi)) {
+    return str + "way";
+  } else {
+    var strArr = str.split("");
+    strArr.splice(0,firstCons.split("").length);
+    return strArr.join("") + firstCons + "ay";
+  }
+}
+
+translatePigLatin("consonant");
