@@ -1,0 +1,13 @@
+function myReplace(str, before, after) {
+  var re = new RegExp(before, "gi");
+  var newstr = after.split("");
+  
+  if (before.split("")[0].match(/[A-Z]/g)){
+    newstr.splice(0,1, newstr[0].toUpperCase());
+  }
+
+  return str.replace(re, newstr.join(""));
+  
+}
+
+myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped");
