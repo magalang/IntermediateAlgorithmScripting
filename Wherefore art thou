@@ -1,0 +1,27 @@
+function whatIsInAName(collection, source) {
+  // What's in a name?
+  var arr = [];
+  // Only change code below this line
+  var propSLength = Object.getOwnPropertyNames(source).length;
+  
+  for (var i=0; i<collection.length; i++){ //go through each item in collection
+    var n = 1; //n is the index of the property that is being searched
+    if (n<=propSLength){
+      for (var propS in source) { //for each property in source
+        if (collection[i][propS] !=source[propS]){ //if there is no match, go to next item in collection
+          break;
+        } else if (n==propSLength){ // if by the last property, all properties match, add item to arr
+          if (collection[i][propS] == source[propS]){
+            arr.push(collection[i]);
+          }
+        }
+        n+=1; //shift index to next property
+      }
+    }
+  }
+  
+  // Only change code above this line
+  return arr;
+}
+
+whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 });
