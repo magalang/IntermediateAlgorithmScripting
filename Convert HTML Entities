@@ -1,0 +1,30 @@
+function convertHTML(str) {
+  // &colon;&rpar;
+  var re = /[&<>"']/g;
+  var strChars = str.match(re);
+  var newstr = str;
+  if (strChars) {
+    strChars.forEach(function(char){
+      var re1 = new RegExp(char,"g");
+      switch (char) {
+        case '&':
+          newstr = newstr.replace(re1,'&amp;');
+          break;
+        case '<':
+          newstr = newstr.replace(re1,'&lt;');
+          break;
+        case '>':
+          newstr = newstr.replace(re1,'&gt;');
+          break;
+        case '"':
+          newstr = newstr.replace(re1,'&quot;');
+          break;
+        case "'":
+          newstr = newstr.replace(re1,'&apos;');  
+      }
+    });
+  }   
+  return newstr;
+}
+
+convertHTML("Dolce [&<>' Gabbana");
