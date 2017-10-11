@@ -1,0 +1,31 @@
+function sumFibs(num) {
+  
+  function createFibs(){
+    var arr =[1,1];
+    var total = 0;
+    while (total < num){
+      var lastIndex = arr.length-1;
+      var lastNumber = arr[lastIndex];
+      var secondToLastNumber = arr[lastIndex-1];
+      total = arr.reduce(function(acc,curr){
+        return acc+curr;
+      });
+      arr.push(lastNumber+secondToLastNumber);
+    }
+    return arr;
+  }
+  
+  var arrFib = createFibs();
+  
+  var oddFib = arrFib.filter(function(number){
+    return (number % 2 !== 0);
+  });
+  
+  return oddFib.reduce(function(acc,curr){
+    return acc+curr;
+  });
+  
+  
+}
+
+sumFibs(10);
