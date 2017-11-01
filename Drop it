@@ -1,0 +1,21 @@
+function dropElements(arr, func) {
+  // Drop them elements.
+  var i=0;
+  var res=[];
+  
+  arr.forEach(function(element){
+    if (func(element)){
+      res = arr.slice(arr[i-1],arr.length);
+      return;
+    } else{
+      i++;
+    }
+    
+  });
+  
+  
+  
+  return res;
+}
+
+dropElements([1, 2, 3, 4, 5], function(n) {return n > 3; });
