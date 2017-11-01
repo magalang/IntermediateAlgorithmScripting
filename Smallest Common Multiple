@@ -1,0 +1,18 @@
+function smallestCommons(arr) {
+  var max = Math.max(arr[0], arr[1]); //max value
+  var min = Math.min(arr[0], arr[1]); //min value
+  var LCM = max; //initial value to test for smallest common multiple
+
+  for(var i = max; i >= min; i--){
+    if(LCM % i !== 0){ //check for even divisibility of LCM
+      //if the LCM is not evenly divisible by a value i in the range:
+      LCM += max; //set the LCM to next largest multiple of max value
+      i = max; //reset the divisor i to max value
+    } 
+  }
+
+  return LCM;  
+}
+
+
+smallestCommons([1,5]);
